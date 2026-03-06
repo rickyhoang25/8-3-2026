@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng 8/3 Mẹ Yêu!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Quicksand', sans-serif; overflow-x: hidden; cursor: none; } /* cursor: none để hiện chuột custom */
+        .fancy-font { font-family: 'Dancing Script', cursive; }
+        
+        /* Hiệu ứng cánh hoa rơi */
+        .petal {
+            position: fixed; top: -10px; z-index: 9999;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        /* Chuột custom mượt mà */
+        #cursor-dot {
+            width: 8px; height: 8px; background: #ff758c;
+            border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000;
+            transition: transform 0.1s ease-out;
+        }
+        .trail {
+            position: fixed; width: 6px; height: 6px; background: #ffb6c1;
+            border-radius: 50%; pointer-events: none; z-index: 9999;
+            animation: fadeOut 0.8s forwards;
+        }
+        @keyframes fadeOut {
+            to { opacity: 0; transform: scale(2); }
+        }
+
+        /* Hiệu ứng chữ */
+        .gradient-text {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Con trỏ đánh máy */
+        #typewriter::after {
+            content: "|";
+            animation: blink 0.7s infinite;
+            color: #ff758c;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .floating { animation: float 3s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body class="bg-[#fff5f7] text-gray-700">
+
+    <div id="cursor-dot"></div>
+
+    <header class="min-h-screen flex flex-col items-center justify-center text-center p-6 relative">
+        <div class="floating mb-6 bg-white p-4 rounded-full shadow-lg">
+            <i data-lucide="flower" size="48" class="text-pink-400"></i>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">Chúc Mừng Ngày <span class="gradient-text">8 tháng 3</span></h1>
+        <p class="fancy-font text-3xl text-pink-500 mb-8 italic">Dành tặng người mẹ tuyệt vời nhất của con!</p>
+        
+        <div class="max-w-2xl min-h-[160px] bg-white/70 backdrop-blur-md p-8 rounded-[2rem] shadow-sm border border-pink-100 flex items-center justify-center">
+            <p id="typewriter" class="leading-relaxed text-xl md:text-2xl font-medium text-pink-600 italic text-center whitespace-pre-line"></p>
+        </div>
+
+        <div class="mt-12 animate-bounce">
+            <i data-lucide="chevron-down" class="text-pink-300"></i>
+        </div>
+    </header>
+
+    <section class="max-w-5xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-3xl shadow-sm hover:scale-105 transition-transform border-t-4 border-pink-300 group">
+            <i data-lucide="heart" class="text-pink-400 mb-4 group-hover:scale-125 transition-transform" fill="#fecdd3"></i>
+            <h3 class="font-bold text-xl mb-2">Tình yêu vô điều kiện</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Mẹ luôn che chở và bao dung, là bến đỗ bình yên nhất sau mỗi chặng đường con đi.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl shadow-sm hover:scale-105 transition-transform border-t-4 border-orange-300 group">
+            <i data-lucide="coffee" class="text-orange-400 mb-4 group-hover:rotate-12 transition-transform"></i>
+            <h3 class="font-bold text-xl mb-2">Hậu phương vững chắc</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Những bữa cơm ấm áp và sự quan tâm của mẹ là nguồn năng lượng lớn nhất của con.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl shadow-sm hover:scale-105 transition-transform border-t-4 border-purple-300 group">
+            <i data-lucide="sparkles" class="text-purple-400 mb-4 group-hover:animate-pulse transition-transform"></i>
+            <h3 class="font-bold text-xl mb-2">Sức mạnh phi thường</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Mẹ là người phụ nữ đảm đang, mạnh mẽ nhất - "superwoman" thực sự trong lòng con.</p>
+        </div>
+    </section>
+
+    <footer class="text-center pb-12">
+        <button onclick="showSurprise()" class="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full shadow-lg transition-all active:scale-95 mb-8">
+            Bấm vào đây có quà nè mẹ! 🎁
+        </button>
+        <p class="text-xs text-pink-300 tracking-widest uppercase">
+            Designed with AI by Con Trai Của Mẹ
+        </p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // 1. Danh sách thơ lục bát
+        const poems = [
+            "Mẹ là lọn gió hiền lành\nCho con mát mẻ trên cành hoa tươi\nMẹ là cả một bầu trời\nCho con bay bổng giữa đời bao la.",
+            "Đi khắp thế gian không ai tốt bằng mẹ\nGánh nặng cuộc đời không ai khổ bằng cha\nNước biển mênh mông không đong đầy tình mẹ\nMây trời lồng lộng không phủ kín công cha.",
+            "Ơn đời mẹ đã sinh con\nCho con hình bóng sắt son tình người\nNgày tám tháng ba rạng ngời\nChúc mẹ mãi mãi nụ cười trên môi.",
+            "Mẹ là suối mát ngọt ngào\nDẫn đưa con bước đi vào tương lai\nDù cho nắng sớm mưa dài\nTình mẹ vẫn ấm nồng hoài trong con."
+        ];
+
+        // 2. Hiệu ứng đánh máy
+        const typewriterElement = document.getElementById('typewriter');
+        let poem = poems[Math.floor(Math.random() * poems.length)];
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < poem.length) {
+                typewriterElement.textContent += poem.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 70);
+            }
+        }
+
+        // 3. Chuột mượt & Sparkles
+        const cursorDot = document.getElementById('cursor-dot');
+        document.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+            
+            // Tạo hạt lấp lánh khi di chuột
+            if (Math.random() > 0.8) {
+                const trail = document.createElement('div');
+                trail.className = 'trail';
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                document.body.appendChild(trail);
+                setTimeout(() => trail.remove(), 800);
+            }
+        });
+
+        // 4. Hiệu ứng hoa rơi
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.innerHTML = '🌸';
+            petal.classList.add('petal');
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = Math.random() * 3 + 3 + 's';
+            petal.style.opacity = Math.random();
+            petal.style.fontSize = Math.random() * 10 + 10 + 'px';
+            document.body.appendChild(petal);
+            setTimeout(() => petal.remove(), 5000);
+        }
+
+        window.onload = () => {
+            type();
+            setInterval(createPetal, 300);
+        };
+
+        function showSurprise() {
+            alert("Chúc mẹ 8/3 thật xinh đẹp, mạnh khỏe và luôn là điểm tựa của con nhé! Con yêu mẹ nhiều! ❤️");
+        }
+    </script>
+</body>
+</html>
